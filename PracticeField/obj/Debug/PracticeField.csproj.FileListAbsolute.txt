@@ -1,0 +1,12 @@
+G:\dotNET\PracticeField\PracticeField\bin\Debug\PracticeField.exe.config
+G:\dotNET\PracticeField\PracticeField\bin\Debug\PracticeField.exe
+G:\dotNET\PracticeField\PracticeField\bin\Debug\PracticeField.pdb
+G:\dotNET\PracticeField\PracticeField\bin\Debug\EntityFramework.dll
+G:\dotNET\PracticeField\PracticeField\bin\Debug\EntityFramework.SqlServer.dll
+G:\dotNET\PracticeField\PracticeField\bin\Debug\EntityFramework.xml
+G:\dotNET\PracticeField\PracticeField\bin\Debug\EntityFramework.SqlServer.xml
+G:\dotNET\PracticeField\PracticeField\obj\Debug\PracticeField.csproj.CoreCompileInputs.cache
+G:\dotNET\PracticeField\PracticeField\obj\Debug\PracticeField.csproj.CopyComplete
+G:\dotNET\PracticeField\PracticeField\obj\Debug\PracticeField.exe
+G:\dotNET\PracticeField\PracticeField\obj\Debug\PracticeField.pdb
+G:\dotNET\PracticeField\PracticeField\obj\Debug\PracticeField.csprojAssemblyReference.cache
