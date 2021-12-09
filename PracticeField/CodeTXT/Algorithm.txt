@@ -1,0 +1,70 @@
+﻿//Greedy algo
+---------------------
+Fractional Knapsac 
+-------------------------
+using System;
+
+
+namespace PracticeField
+{
+    public class item
+    {
+        public int value;
+        public int weight;
+
+        public item(int value, int weight)
+        {
+            this.value = value;
+            this.weight = weight;
+        }
+    }
+    public class CodeForces
+    {
+       
+        public static int comp(item item1, item item2)
+        {
+            double r1 = item1.value / item1.weight;
+            double r2 = item2.value / item2.weight;
+            return r1 > r2?-1:0;
+        }
+
+        public static double fKnapsac(item[] items,int w)
+        {
+            double totalVal = 0f;
+            int currentW = 0;
+            Array.Sort(items,comp);
+
+            foreach(item i in items)
+            {
+                float remaining = w - currentW;
+                if(i.weight<=remaining)
+                {
+                    totalVal += (double)i.value;
+                    currentW += i.weight;
+                }
+                else
+                {
+                    if (remaining == 0)
+                        break;
+
+                    double fraction = remaining / (double)i.weight;
+                    totalVal += fraction * (double)i.value;                 //profit calculation
+                    currentW += (int)(fraction * (double)i.weight);
+                }
+            }
+            return totalVal;
+        }
+        public static void Main(string[] args)
+        {
+            item[] arr = { new item(60, 10),
+                   new item(100, 20),
+                   new item(120, 30) };
+
+            Console.WriteLine("Maximum value we can obtain = " +
+                              fKnapsac(arr, 50));
+
+        }
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------
