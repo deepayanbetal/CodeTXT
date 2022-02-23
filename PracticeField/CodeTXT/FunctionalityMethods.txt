@@ -1,0 +1,20 @@
+﻿
+return gives prettified JSON
+-----------------------------
+public static void Main(string[] args)
+        {
+            var test = new
+            {
+                name = "rick",
+                company = "Westwind",
+                entered = DateTime.UtcNow
+            };
+
+          
+            string json = JsonConvert.SerializeObject(test);
+            Console.WriteLine(json); // single line JSON string
+
+            string jsonFormatted = JValue.Parse(json).ToString(Formatting.Indented);
+
+            Console.WriteLine(jsonFormatted);
+        }
