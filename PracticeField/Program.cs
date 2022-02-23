@@ -1,43 +1,42 @@
-﻿using System;
-
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Linq;
+using System.Text;
 
 namespace PracticeField
 {
     
     public class CodeForces
     {
-       
 
-        public static void Main(string[] args)
+        static int knapSack(int bagWeight, int[] itemWeight, int[] itemValue, int numberofItems)
         {
-            string word1 = "abc";
-            string word2 = "bce";
-
-            int len1 = word1.Length;
-            int len2 = word2.Length;
-
-            if(len1==len2)
+            int[] dp = new int[bagWeight];
+            for (int i = 1; i < numberofItems + 1; i++)
             {
-                char[] char1 = word1.ToCharArray();
-                char[] char2 = word2.ToCharArray();
-
-                Array.Sort(char1);
-                Array.Sort(char2);
-
-                for(int i=0;i<=len1-1;i++)
+                for (int w = bagWeight; w >= 0; w--)
                 {
-                    if (char1[i] == char2[i])
-                    {
-                        Console.WriteLine("permutation");
-                    }
-                    else
-                        Console.WriteLine("not");
+                    if (itemWeight[i - 1] <= w)
+                        dp[w] = Math.Max(dp[bagWeight], dp[w - itemWeight[i - 1]] + itemValue[i - 1]);
                 }
 
             }
 
 
+            return dp[bagWeight];
+        }
 
+        
+
+        public static void Main()
+        {
+            int[] val = new int[] { 60, 100, 120 };
+            int[] wt = new int[] { 10, 20, 30 };
+            int W = 50;
+            int n = val.Length;
+
+            Console.Write(knapSack(W, wt, val, n));
         }
     }
 }

@@ -119,6 +119,10 @@ namespace PracticeField
             string useableStr = String.Concat(Str.Where(c=>!Char.IsWhiteSpace(c)));// IsWhiteSpace is use for identify the white space
             Console.WriteLine(useableStr);
 
+            // with LINQ
+
+            Console.WriteLine(String.Concat(msg.Trim().Where(c=>!Char.IsWhiteSpace(c))));
+
         }
         static void Main(string[] args)
         {
@@ -133,7 +137,7 @@ namespace PracticeField
 /********************************************************************************************************************************/
 3) How to find the maximum occurring character in a given String?
 ----------------------------------------------------------------------
-
+https://www.codevscolor.com/c-sharp-find-maximum-occurring-character-in-string
 
 using System;
 using System.Collections.Generic;
@@ -1531,5 +1535,18 @@ namespace PracticeField
     }
 }
 /*******************************************************************************************************************/
+
+abbriviation
+--------------------
+public static void Main(string[] args)
+        {
+
+            string msg = "kun faya kun faya kun faya kun";
+
+              Console.WriteLine(msg.Split(' ').Aggregate(" ",(x,y)=>x +=String.Concat(y[0], ".")));
+
+           // Console.WriteLine(msg.Split(' ').Aggregate(new StringBuilder(), (x, y) => x.Append(x.Length==0?" ":", ").Append(y)).ToString());
+
+        }
 
 
