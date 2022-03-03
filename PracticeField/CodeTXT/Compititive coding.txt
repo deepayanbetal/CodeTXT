@@ -783,7 +783,7 @@ namespace PracticeField
 
                 while(left<right)
                 {
-                    temp = arr[i];
+                    temp = arr[left];
                     arr[left] = arr[right];
                     arr[right] = temp;
                     left += 1;

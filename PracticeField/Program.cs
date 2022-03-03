@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -10,33 +12,35 @@ namespace PracticeField
     public class CodeForces
     {
 
-        static int knapSack(int bagWeight, int[] itemWeight, int[] itemValue, int numberofItems)
+      public static List<List<int>> subSetofArray(int[] arr)
         {
-            int[] dp = new int[bagWeight];
-            for (int i = 1; i < numberofItems + 1; i++)
-            {
-                for (int w = bagWeight; w >= 0; w--)
-                {
-                    if (itemWeight[i - 1] <= w)
-                        dp[w] = Math.Max(dp[bagWeight], dp[w - itemWeight[i - 1]] + itemValue[i - 1]);
-                }
+            List<List<int>> res = new List<List<int>>();//power set
+            generateSubSet(0,arr,new List<int>(),res);
+            return res;
 
-            }
-
-
-            return dp[bagWeight];
         }
 
-        
+       public static void generateSubSet(int index, int[] arr, List<int> curr, List<List<int>> res)
+        {
+            res.Add(new List<int>(curr));
+            for(int i=index;i<arr.Length;i++)
+            {
+                curr.Add(arr[i]);
+                generateSubSet(i + 1,arr,curr,res);
+                curr.Remove(curr.Count-1);
+            }
+        }
 
         public static void Main()
         {
-            int[] val = new int[] { 60, 100, 120 };
-            int[] wt = new int[] { 10, 20, 30 };
-            int W = 50;
-            int n = val.Length;
-
-            Console.Write(knapSack(W, wt, val, n));
+            int[] arr = {1, 2, 3};
+            int gap = 4;
+            string msg = "there is a boy";
+           // Console.WriteLine(subSetofArray(arr));
+            foreach(var obj in subSetofArray(arr).SelectMany(l=>l.Select(o=>o)))
+            {
+                Console.WriteLine("["+obj+"]");
+            }
         }
     }
 }
